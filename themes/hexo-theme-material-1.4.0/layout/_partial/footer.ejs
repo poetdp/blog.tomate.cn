@@ -1,0 +1,18 @@
+<!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    <% if(theme.scheme === 'Paradox') { %>
+        <!-- Paradox Footer Left Section -->
+        <%- partial('_partial/footer-left') %>
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<% if(theme.copyright_since) { %>&nbsp;<%= theme.copyright_since %>&nbsp;-<% } %><script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script><a target="_blank" href="https://github.com/rocj">DINGPENG</a><!--<%- config.title %>-->
+        </div>
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">皖 ICP 备 <a target="_blank" href="http://ahcainfo.miitbeian.gov.cn">17012372</a> 号</div>
+            </div>
+        </div>
+    <% } %>
+</footer>

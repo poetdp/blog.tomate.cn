@@ -75,7 +75,7 @@ search:
   path: search.xml
   field: post
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-material-1.5.2
+theme: hexo-theme-material-1.4.0
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

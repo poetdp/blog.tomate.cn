@@ -1,0 +1,60 @@
+<!-- Post TOC -->
+<% if( (page.toc === true) || (is_post() && page.toc !== false) ) { %>
+    <%- partial('_partial/toc_button') %>
+<% } %>
+
+<!-- Layouts -->
+<% if(page.layout === 'tags') { %>
+    <!-- Tags Cloud -->
+    <%- partial('_widget/page-tagcloud') %>
+
+<% } else if(page.layout === 'links') { %>
+    <!-- Single Links Page -->
+    <%- partial('_widget/page-links') %>
+
+<% } else if(page.layout === 'timeline') { %>
+    <!-- Single Timeline Page -->
+    <%- partial('_widget/page-timeline') %>
+
+<% } else { %>
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                <%- partial('_partial/post-header') %>
+
+                <% if(theme.scheme === 'Paradox') { %>
+                    <!-- Paradox Post Info -->
+                    <%- partial('_partial/Paradox-post-info') %>
+                <% } %>
+
+                <!-- Post Content -->
+                <%- partial('_partial/post-content') %>
+
+                <% if(theme.scheme === 'Isolation') { %>
+                    <!-- Paradox Post Info -->
+                    <%- partial('_partial/Isolation-post-info') %>
+                <% } %>
+
+                <!-- Copyright Widget -->
+                <div style="margin:1pc auto;min-width: 90%;padding:1pc;">
+                    <br><br><hr><p style="color: grey"><em>本站所有文章均已在版权印备案，如需转载或为他用请访问版权印。</em> <span style="display:inline-block;"><a target="_blank" href="http://101703100005299.bqy.pub" style="color:pink;">获取授权</a></span></p><p style="color: grey"></p>
+                </div>
+
+                <!-- Donate Widget -->
+                <iframe src="http://rocjzh.coding.me/donate-widget/" height=250px frameborder="0"></iframe>
+                
+                <!-- Post Comments -->
+                <% if(page.comment !== false) { %>
+                    <%- partial('_partial/comment') %>
+                <% } %>
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <%- partial('_partial/post-nav') %>
+        </div>
+    </div>
+<% } %>
