@@ -71,6 +71,9 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+search:
+  path: search.xml
+  field: post
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-material-1.5.2
 
