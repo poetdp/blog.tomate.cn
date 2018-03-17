@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -462,34 +462,34 @@
 <h5 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h5><p>若n是它所有因子之和，输出Yes，否则输出No</p>
 <h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h5><pre><code>6
 </code></pre><h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h5><pre><code>Yes
-</code></pre><h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre><code class="cpp">#include &lt;iostream&gt;
-using namespace std;
+</code></pre><h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-int  Factor_sum(int, int);
+<span class="token keyword">int</span>  <span class="token function">Factor_sum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-int main() {
-    int n;
-    cin &gt;&gt; n;
-    if(n &lt;= 1)
-        cout &lt;&lt; &quot;No&quot;;
-    else {
-        int m=n-1;
-        if(n == Factor_sum(n, m))
-            cout &lt;&lt; &quot;Yes&quot;;
-        else {
-            cout &lt;&lt; &quot;No&quot;;
-        }
-    }
-    return 0;
-}
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"No"</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> m<span class="token operator">=</span>n<span class="token number">-1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token function">Factor_sum</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Yes"</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"No"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int Factor_sum(int n, int m) {
-    if(m == 1)
-        return 1;
-    else {
-        return n%m == 0 ? m+Factor_sum(n, m-1) : Factor_sum(n, m-1);
-    }
-}
+<span class="token keyword">int</span> <span class="token function">Factor_sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>m <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> n<span class="token operator">%</span>m <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">?</span> m<span class="token operator">+</span><span class="token function">Factor_sum</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> m<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Factor_sum</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> m<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
     

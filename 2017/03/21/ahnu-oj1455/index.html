@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -472,78 +472,78 @@
 5 7
 6 7
 </code></pre><h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h5><pre><code>3
-</code></pre><h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre><code class="cpp">#include&lt;iostream&gt;
-#include&lt;malloc.h&gt;
-#define MAX 50
-using namespace std;
+</code></pre><h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;malloc.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">define</span> MAX 50</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-int Low[MAX],d[MAX]; 
-typedef struct Anode
-{
-    int adjvex;
-    struct Anode *nextarc;
-}ArcNode[MAX]; 
-typedef struct
-{
-    ArcNode vertices;
-    int vexnum,arcnum; 
-}ALGraph;
-ALGraph G=*((ALGraph *)malloc(sizeof(ALGraph)));
-void DFS(int u,int p)
-{
-    static int time=0;
-    int v;
-    Low[u]=d[u]=time++;
-    for(Anode *w=&amp;(G.vertices[u]);w;w=w-&gt;nextarc)
-    {
-        v=w-&gt;adjvex;
-        if(d[v]==-1)
-        {
-            DFS(v,u);
-            if( Low[u]&gt;Low[v])   Low[u]=Low[v];
-        }
-            else if(v!=p&amp;&amp;Low[u]&gt;d[v])  Low[u]=d[v];
-    }
-} 
-int main()
-{
+<span class="token keyword">int</span> Low<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">,</span>d<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> Anode
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> adjvex<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> Anode <span class="token operator">*</span>nextarc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>ArcNode<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span>
+<span class="token punctuation">{</span>
+    ArcNode vertices<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> vexnum<span class="token punctuation">,</span>arcnum<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>ALGraph<span class="token punctuation">;</span>
+ALGraph G<span class="token operator">=</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>ALGraph<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">DFS</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span><span class="token keyword">int</span> p<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">int</span> time<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> v<span class="token punctuation">;</span>
+    Low<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>d<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>time<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>Anode <span class="token operator">*</span>w<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>w<span class="token punctuation">;</span>w<span class="token operator">=</span>w<span class="token operator">-</span><span class="token operator">></span>nextarc<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        v<span class="token operator">=</span>w<span class="token operator">-</span><span class="token operator">></span>adjvex<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">DFS</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span>u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span> Low<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">></span>Low<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span>   Low<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>Low<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>v<span class="token operator">!=</span>p<span class="token operator">&amp;&amp;</span>Low<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">></span>d<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span>  Low<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>d<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
 
-    int i,j,k,n,m,l=0,u,count=0;
-    Anode *N;
-    cin&gt;&gt;n&gt;&gt;m;
-    for(u=0;u&lt;n;u++)
-    {
-        d[u]=-1;
-        G.vertices[u].adjvex=u;
-        G.vertices[u].nextarc=NULL;
-    }
-        for(k=0;k&lt;m;k++)
-        {
-            cin&gt;&gt;i&gt;&gt;j;
-            N=(Anode *)malloc(sizeof(Anode));
-            N-&gt;adjvex=j;
-            N-&gt;nextarc=G.vertices[i].nextarc;
-            G.vertices[i].nextarc=N;
-            N=(Anode *)malloc(sizeof(Anode));
-            N-&gt;adjvex=i;
-            N-&gt;nextarc=G.vertices[j].nextarc;
-            G.vertices[j].nextarc=N;
-        } 
-        DFS(0,-1);
-        for(i=0;i&lt;n;i++)
-        {
-            for(Anode *w=G.vertices[i].nextarc;w;w=w-&gt;nextarc)
-            {  
-                if(Low[w-&gt;adjvex]&gt;=d[i]&amp;&amp;i!=0)
-                {
-                    count++;
-                    break;
-                }
-            }      
-        }
-        cout&lt;&lt;count&lt;&lt;endl;
-    return 0;
-}
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>k<span class="token punctuation">,</span>n<span class="token punctuation">,</span>m<span class="token punctuation">,</span>l<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>u<span class="token punctuation">,</span>count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    Anode <span class="token operator">*</span>N<span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>u<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>u<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>u<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        d<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>adjvex<span class="token operator">=</span>u<span class="token punctuation">;</span>
+        G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>nextarc<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span>m<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cin<span class="token operator">>></span>i<span class="token operator">>></span>j<span class="token punctuation">;</span>
+            N<span class="token operator">=</span><span class="token punctuation">(</span>Anode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>Anode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            N<span class="token operator">-</span><span class="token operator">></span>adjvex<span class="token operator">=</span>j<span class="token punctuation">;</span>
+            N<span class="token operator">-</span><span class="token operator">></span>nextarc<span class="token operator">=</span>G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nextarc<span class="token punctuation">;</span>
+            G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nextarc<span class="token operator">=</span>N<span class="token punctuation">;</span>
+            N<span class="token operator">=</span><span class="token punctuation">(</span>Anode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>Anode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            N<span class="token operator">-</span><span class="token operator">></span>adjvex<span class="token operator">=</span>i<span class="token punctuation">;</span>
+            N<span class="token operator">-</span><span class="token operator">></span>nextarc<span class="token operator">=</span>G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>nextarc<span class="token punctuation">;</span>
+            G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>nextarc<span class="token operator">=</span>N<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+        <span class="token function">DFS</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span>Anode <span class="token operator">*</span>w<span class="token operator">=</span>G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nextarc<span class="token punctuation">;</span>w<span class="token punctuation">;</span>w<span class="token operator">=</span>w<span class="token operator">-</span><span class="token operator">></span>nextarc<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>  
+                <span class="token keyword">if</span><span class="token punctuation">(</span>Low<span class="token punctuation">[</span>w<span class="token operator">-</span><span class="token operator">></span>adjvex<span class="token punctuation">]</span><span class="token operator">>=</span>d<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span>i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    count<span class="token operator">++</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>      
+        <span class="token punctuation">}</span>
+        cout<span class="token operator">&lt;&lt;</span>count<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
     

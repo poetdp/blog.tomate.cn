@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -460,34 +460,34 @@
 <h5 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h5><p>剩下的数字组成的最小新数</p>
 <h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h5><p>20 5<br>89382735464109218767</p>
 <h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h5><p>235464109218767</p>
-<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre><code class="cpp">#include &lt;iostream&gt;
-using namespace std;
+<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-char find_min(char *c, int left, int right, int &amp;pmin) {
-    char min;
-    min=c[left]; pmin=left; left++;
-    while(left&lt;=right) {
-        if(c[left]&lt;min) { min=c[left]; pmin=left;}
-        left++;
-    }
-    return min;
-}
+<span class="token keyword">char</span> <span class="token function">find_min</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>c<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>pmin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> min<span class="token punctuation">;</span>
+    min<span class="token operator">=</span>c<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span> pmin<span class="token operator">=</span>left<span class="token punctuation">;</span> left<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;=</span>right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>c<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">&lt;</span>min<span class="token punctuation">)</span> <span class="token punctuation">{</span> min<span class="token operator">=</span>c<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span> pmin<span class="token operator">=</span>left<span class="token punctuation">;</span><span class="token punctuation">}</span>
+        left<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> min<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main() {
-    int n, k;
-    cin &gt;&gt; n &gt;&gt; k;
-    char *c = new char [n];
-    int i, pmin=0, tag=-1;
-    for(i=0; i&lt;n; i++) {
-        cin &gt;&gt; c[i];
-    }
-    for(i=1; i&lt;=n-k; i++) {
-        cout &lt;&lt; find_min(c, tag+1, k+i-1, pmin);
-        tag=pmin;
-    }
-    cout &lt;&lt; endl;
-    return 0;
-}
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> k<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n <span class="token operator">>></span> k<span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span> <span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> pmin<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> tag<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cin <span class="token operator">>></span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>n<span class="token operator">-</span>k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token function">find_min</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> tag<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> k<span class="token operator">+</span>i<span class="token number">-1</span><span class="token punctuation">,</span> pmin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tag<span class="token operator">=</span>pmin<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
     

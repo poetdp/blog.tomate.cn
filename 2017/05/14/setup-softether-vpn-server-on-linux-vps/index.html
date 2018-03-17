@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -463,40 +463,40 @@
 </ul>
 <h2 id="安装-SoftEther-VPN-Server"><a href="#安装-SoftEther-VPN-Server" class="headerlink" title="安装 SoftEther VPN Server"></a>安装 SoftEther VPN Server</h2><p>1.登录到 VPS</p>
 <p>Linux / OS X 下直接在 <code>terminal</code> 中登录：</p>
-<pre><code class="bash">ssh username@vps_ip
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> username@vps_ip
 </code></pre>
 <p><img src="http://upload-images.jianshu.io/upload_images/4368698-65a8971f26d71ab5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Windows 下使用 <code>putty</code> 登录</p>
 <p>2.更新一下 <code>apt-get</code> 源并安装gcc等工具</p>
-<pre><code class="bash">sudo apt-get update
-sudo apt-get install build-essential
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> build-essential
 </code></pre>
 <p>3.下载 <code>SoftEther VPN Server</code> （也可以使用 <code>scp</code> 从本地上传到云服务器）</p>
-<pre><code class="bash"># 32bit 执行这个
-wget http://opxbtqu6c.bkt.clouddn.com/SoftEther-VPN/softether-vpnserver-v4.20-9608-rtm-2016.04.17-linux-x64-64bit.tar.gz
-# 64bit 执行这个
-wget http://opxbtqu6c.bkt.clouddn.com/SoftEther-VPN/softether-vpnserver-v4.20-9608-rtm-2016.04.17-linux-x64-64bit.tar.gz
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 32bit 执行这个</span>
+<span class="token function">wget</span> http://opxbtqu6c.bkt.clouddn.com/SoftEther-VPN/softether-vpnserver-v4.20-9608-rtm-2016.04.17-linux-x64-64bit.tar.gz
+<span class="token comment" spellcheck="true"># 64bit 执行这个</span>
+<span class="token function">wget</span> http://opxbtqu6c.bkt.clouddn.com/SoftEther-VPN/softether-vpnserver-v4.20-9608-rtm-2016.04.17-linux-x64-64bit.tar.gz
 </code></pre>
 <p><img src="http://upload-images.jianshu.io/upload_images/4368698-9a4ee5c7234a21ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>4.使用 <code>tar</code> 解压，会产生一个 <code>vpnserver</code> 文件夹</p>
-<pre><code class="bash">tar xvf softether-vpnserver-v4.20-9608-rtm-2016.04.17-linux-x64-64bit.tar.gz
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> xvf softether-vpnserver-v4.20-9608-rtm-2016.04.17-linux-x64-64bit.tar.gz
 </code></pre>
 <p><img src="http://upload-images.jianshu.io/upload_images/4368698-568de4bad530e2a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>5.进入 <code>vpnserver</code> 文件夹，然后安装</p>
-<pre><code class="bash">cd vpnserver
-make
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> vpnserver
+<span class="token function">make</span>
 </code></pre>
 <p>连续输3次1同意许可协议<br><img src="http://upload-images.jianshu.io/upload_images/4368698-e9602a8974b7691f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/4368698-5e3cebbfa949a5cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h2 id="配置-SoftEther-VPN-Server"><a href="#配置-SoftEther-VPN-Server" class="headerlink" title="配置 SoftEther VPN Server"></a>配置 SoftEther VPN Server</h2><p>1.开启 <code>vpn</code> 服务</p>
-<pre><code class="bash">sudo /home/ubuntu/vpnserver/vpnserver start
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> /home/ubuntu/vpnserver/vpnserver start
 </code></pre>
 <p>2.执行以下命令，然后依次输入1、回车、回车</p>
-<pre><code class="bash">/home/ubuntu/vpnserver/vpncmd
+<pre class=" language-bash"><code class="language-bash">/home/ubuntu/vpnserver/vpncmd
 </code></pre>
 <p><img src="http://upload-images.jianshu.io/upload_images/4368698-97b006b192194254.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/4368698-a4130440cda70a40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>3.输入以下命令设置管理密码，之后按 <code>Ctrl+C</code> 退出 vpncmd</p>
 <pre><code>ServerPasswordSet
 </code></pre><p>4.将 <code>vpnserver</code> 加入开机启动项（可选）</p>
-<pre><code class="bash">vi /etc/rc.local
+<pre class=" language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/rc.local
 </code></pre>
 <p>按 <code>i</code> 键，将 <code>/home/ubuntu/vpnserver/vpnserver start</code> 写入文件，按下 <code>ESC</code> ，输入 <code>:wq</code> 退出</p>
 <h2 id="管理-SoftEther-VPN-Server"><a href="#管理-SoftEther-VPN-Server" class="headerlink" title="管理 SoftEther VPN Server"></a>管理 SoftEther VPN Server</h2><p>SoftEther 提供了 <code>图形界面</code> 的 <code>vpn server</code> 管理工具，目前有 <code>Windows</code> 版和 <code>OS X</code> 版（推荐 win 版，支持中文）</p>

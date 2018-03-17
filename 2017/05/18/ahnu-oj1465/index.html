@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -462,67 +462,67 @@
 <h5 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h5><p>如果有答案，则输出所有满足条件的子集（用固定长度n-元组xi表示，xi=0或1，i=0，…，n）。如果没有答案，则输出“no solution!”。</p>
 <h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h5><p>4 31<br>11 13 24 7</p>
 <h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h5><p>1 1 0 1<br>0 0 1 1</p>
-<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre><code class="cpp">#include &lt;iostream&gt;
-using namespace std;
+<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-void SumOfSub(int s, int k, int r, int **x, int m, int *w, int n, int &amp;count) {
-    x[k][1]=1;
-    if(s+w[k] == m) {
-        count++;
-        int i, j;
-        for(i=0; i&lt;n; i++) {
-            for(j=0; j&lt;=k; j++) {
-                if(x[j][0] == i) {
-                    cout &lt;&lt; x[j][1] &lt;&lt; &quot; &quot;;
-                    break;
-                }
-            }
-            if(j &gt; k)
-                cout &lt;&lt; &quot;0 &quot;;
-        }
-        cout &lt;&lt; endl;
-    }
-    else if(s+w[k]+w[k+1] &lt;= m)
-        SumOfSub(s+w[k], k+1, r-w[k], x, m, w, n, count);
-    if(s+r-w[k]&gt;=m &amp;&amp; s+w[k+1]&lt;=m) {
-        x[k][1]=0;
-        SumOfSub(s, k+1, r-w[k], x, m, w, n, count);
-    }
-}
+<span class="token keyword">void</span> <span class="token function">SumOfSub</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>x<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>w<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>count<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    x<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">+</span>w<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> m<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;=</span>k<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    cout <span class="token operator">&lt;&lt;</span> x<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">></span> k<span class="token punctuation">)</span>
+                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"0 "</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">+</span>w<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> m<span class="token punctuation">)</span>
+        <span class="token function">SumOfSub</span><span class="token punctuation">(</span>s<span class="token operator">+</span>w<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> r<span class="token operator">-</span>w<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> m<span class="token punctuation">,</span> w<span class="token punctuation">,</span> n<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">+</span>r<span class="token operator">-</span>w<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">>=</span>m <span class="token operator">&amp;&amp;</span> s<span class="token operator">+</span>w<span class="token punctuation">[</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span>m<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        x<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token function">SumOfSub</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> r<span class="token operator">-</span>w<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> m<span class="token punctuation">,</span> w<span class="token punctuation">,</span> n<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-void SumOfSub(int **x, int n, int m, int *w, int &amp;count) {
-    int r=0;
-    for(int i=0; i&lt;n; i++)
-        r+=w[i];
-    if(r&gt;=m &amp;&amp; w[0]&lt;=m)
-        SumOfSub(0, 0, r, x, m, w, n, count);
-}
+<span class="token keyword">void</span> <span class="token function">SumOfSub</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>x<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>w<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>count<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> r<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        r<span class="token operator">+</span><span class="token operator">=</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>r<span class="token operator">>=</span>m <span class="token operator">&amp;&amp;</span> w<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span>m<span class="token punctuation">)</span>
+        <span class="token function">SumOfSub</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> x<span class="token punctuation">,</span> m<span class="token punctuation">,</span> w<span class="token punctuation">,</span> n<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main() {
-    int n, M, count=0;
-    cin &gt;&gt; n &gt;&gt; M;
-    int *w = new int [n];
-    int **x = new int * [n];
-    for(int i=0; i&lt;n; i++)
-        x[i] = new int [2];
-    for(int i=0; i&lt;n; i++) { 
-        cin &gt;&gt; w[i];
-        x[i][0]=i;
-    }
-    int i, j, t;
-    for(i=0; i&lt;n; i++) {
-        for(j=i+1; j&lt;n; j++) {
-            if(w[i] &gt; w[j]) {
-                t=w[i]; w[i]=w[j]; w[j]=t;
-                t=x[i][0]; x[i][0]=x[j][0]; x[j][0]=t;
-            }
-        }
-    }
-    SumOfSub(x, n, M, w, count);
-    if(count==0)
-        cout &lt;&lt; &quot;no solution!&quot;;
-    return 0;
-}
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> M<span class="token punctuation">,</span> count<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n <span class="token operator">>></span> M<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token operator">*</span> <span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        cin <span class="token operator">>></span> w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> t<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> w<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                t<span class="token operator">=</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>w<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> w<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>t<span class="token punctuation">;</span>
+                t<span class="token operator">=</span>x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>x<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> x<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>t<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">SumOfSub</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> n<span class="token punctuation">,</span> M<span class="token punctuation">,</span> w<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>count<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"no solution!"</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
     

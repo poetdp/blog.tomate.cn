@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -462,143 +462,143 @@
 <h5 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h5><p>如果有生成树，则输出最小生成树的代价；如果没有生成树，则输出”no spanning tree”。</p>
 <h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h5><p>6 10<br>1 2 10<br>1 4 30<br>1 5 45<br>2 3 50<br>2 5 40<br>2 6 25<br>3 5 35<br>3 6 15<br>4 6 20<br>5 6 55</p>
 <h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h5><p>105</p>
-<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre><code class="cpp">#include &lt;iostream&gt;
-using namespace std;
+<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-#define INFTY 32768
+<span class="token macro property">#<span class="token directive keyword">define</span> INFTY 32768</span>
 
-struct ENode {
-    int adjVex;
-    int weight;
-    ENode *nextArc;
-};
+<span class="token keyword">struct</span> ENode <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> adjVex<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> weight<span class="token punctuation">;</span>
+    ENode <span class="token operator">*</span>nextArc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-class Graph {
-public:
-    Graph();
-    bool IsConnected();
-    void Prim(int s);
+<span class="token keyword">class</span> <span class="token class-name">Graph</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Graph</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> <span class="token function">IsConnected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">Prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    void test() {
-        int i;
-        cout &lt;&lt; endl;
-        for(i=0; i&lt;vSize; i++) {
-            cout &lt;&lt; &quot;a[&quot; &lt;&lt; i &lt;&lt; &quot;]&quot;;
-            ENode *p = a[i];
-            while(p) {
-                cout &lt;&lt; &quot;-&gt;&quot; &lt;&lt; p-&gt;adjVex &lt;&lt; &quot;(&quot; &lt;&lt; p-&gt;weight &lt;&lt; &quot;)&quot;;
-                p = p-&gt;nextArc;
-            }
-            cout &lt;&lt; endl;
-        }
-    }
-protected:
-    ENode **a;
-    int vSize, eSize;
-    void DFS_Travel(int u, bool *visited);
-    void Prim(int k, int *nearest, int *lowcost);
-};
+    <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"a["</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"]"</span><span class="token punctuation">;</span>
+            ENode <span class="token operator">*</span>p <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"->"</span> <span class="token operator">&lt;&lt;</span> p<span class="token operator">-</span><span class="token operator">></span>adjVex <span class="token operator">&lt;&lt;</span> <span class="token string">"("</span> <span class="token operator">&lt;&lt;</span> p<span class="token operator">-</span><span class="token operator">></span>weight <span class="token operator">&lt;&lt;</span> <span class="token string">")"</span><span class="token punctuation">;</span>
+                p <span class="token operator">=</span> p<span class="token operator">-</span><span class="token operator">></span>nextArc<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">protected</span><span class="token operator">:</span>
+    ENode <span class="token operator">*</span><span class="token operator">*</span>a<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> vSize<span class="token punctuation">,</span> eSize<span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">DFS_Travel</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">bool</span> <span class="token operator">*</span>visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">Prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>nearest<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>lowcost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-Graph::Graph() {
-    cin &gt;&gt; vSize &gt;&gt; eSize;
+Graph<span class="token operator">::</span><span class="token function">Graph</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cin <span class="token operator">>></span> vSize <span class="token operator">>></span> eSize<span class="token punctuation">;</span>
 
-    int i, u, v, w;
-    ENode *p, *q;
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> u<span class="token punctuation">,</span> v<span class="token punctuation">,</span> w<span class="token punctuation">;</span>
+    ENode <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token operator">*</span>q<span class="token punctuation">;</span>
 
-    a = new ENode* [vSize];
-    for(i=0; i&lt;vSize; i++) a[i]=NULL;
+    a <span class="token operator">=</span> <span class="token keyword">new</span> ENode<span class="token operator">*</span> <span class="token punctuation">[</span>vSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
 
-    for(i=0; i&lt;eSize; i++) {
-        p = new ENode;
-        q = new ENode;
-        cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;
-        u--; v--;
-        p-&gt;adjVex = u;
-        q-&gt;adjVex = v;
-        p-&gt;weight = q-&gt;weight = w;
-        p-&gt;nextArc = a[v];
-        a[v] = p;
-        q-&gt;nextArc = a[u];
-        a[u] = q;
-    }
-}
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>eSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        p <span class="token operator">=</span> <span class="token keyword">new</span> ENode<span class="token punctuation">;</span>
+        q <span class="token operator">=</span> <span class="token keyword">new</span> ENode<span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> u <span class="token operator">>></span> v <span class="token operator">>></span> w<span class="token punctuation">;</span>
+        u<span class="token operator">--</span><span class="token punctuation">;</span> v<span class="token operator">--</span><span class="token punctuation">;</span>
+        p<span class="token operator">-</span><span class="token operator">></span>adjVex <span class="token operator">=</span> u<span class="token punctuation">;</span>
+        q<span class="token operator">-</span><span class="token operator">></span>adjVex <span class="token operator">=</span> v<span class="token punctuation">;</span>
+        p<span class="token operator">-</span><span class="token operator">></span>weight <span class="token operator">=</span> q<span class="token operator">-</span><span class="token operator">></span>weight <span class="token operator">=</span> w<span class="token punctuation">;</span>
+        p<span class="token operator">-</span><span class="token operator">></span>nextArc <span class="token operator">=</span> a<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">;</span>
+        q<span class="token operator">-</span><span class="token operator">></span>nextArc <span class="token operator">=</span> a<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-bool Graph::IsConnected() {
-    bool *visited = new bool [vSize];
-    for(int i=0; i&lt;vSize; i++) {
-        visited[i]=false;
-    }
-    DFS_Travel(0, visited);
-    for(int i=0; i&lt;vSize; i++) {
-        if(visited[i] == false) {
-            cout &lt;&lt; &quot;no spanning tree&quot;;
-            return false;
-        }
-    }
-    return true;
-}
+<span class="token keyword">bool</span> Graph<span class="token operator">::</span><span class="token function">IsConnected</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">bool</span> <span class="token operator">*</span>visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">bool</span> <span class="token punctuation">[</span>vSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">DFS_Travel</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"no spanning tree"</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-void Graph::DFS_Travel(int u, bool *visited) {
-    ENode *w;
-    visited[u]=true;
-    for(w=a[u]; w; w=w-&gt;nextArc) {
-        int v=w-&gt;adjVex;
-        if(visited[v]==false)
-            DFS_Travel(v, visited);
-    }
-}
+<span class="token keyword">void</span> Graph<span class="token operator">::</span><span class="token function">DFS_Travel</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">bool</span> <span class="token operator">*</span>visited<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ENode <span class="token operator">*</span>w<span class="token punctuation">;</span>
+    visited<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>w<span class="token operator">=</span>a<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span> w<span class="token punctuation">;</span> w<span class="token operator">=</span>w<span class="token operator">-</span><span class="token operator">></span>nextArc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> v<span class="token operator">=</span>w<span class="token operator">-</span><span class="token operator">></span>adjVex<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">==</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+            <span class="token function">DFS_Travel</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-void Graph::Prim(int s) {
-    int *nearest = new int [vSize];
-    int *lowcost = new int [vSize];
-    Prim(s, nearest, lowcost);
-    int cost=0;
-    for(int j=0; j&lt;vSize; j++) {
-        cost+=lowcost[j];
-    }
-    cout &lt;&lt; cost;
-    delete [] nearest;
-    delete [] lowcost;
-}
+<span class="token keyword">void</span> Graph<span class="token operator">::</span><span class="token function">Prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>nearest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token punctuation">[</span>vSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>lowcost <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token punctuation">[</span>vSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">Prim</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> nearest<span class="token punctuation">,</span> lowcost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> cost<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cost<span class="token operator">+</span><span class="token operator">=</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> cost<span class="token punctuation">;</span>
+    <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> nearest<span class="token punctuation">;</span>
+    <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> lowcost<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-void Graph::Prim(int k, int *nearest, int *lowcost) {
-    bool *mark = new bool [vSize];
-    ENode *p;
-    if(k&lt;0 || k&gt;vSize-1) return;
-    for(int i=0; i&lt;vSize; i++) {
-        nearest[i]=-1;
-        mark[i]=false;
-        lowcost[i]=INFTY;
-    }
-    lowcost[k]=0;
-    nearest[k]=k;
-    mark[k]=true;
-    for(int i=0; i&lt;vSize; i++) {
-        for(p=a[k]; p; p=p-&gt;nextArc) {
-            int j=p-&gt;adjVex;
-            if(! mark[j] &amp;&amp; lowcost[j]&gt;p-&gt;weight) {
-                lowcost[j]=p-&gt;weight;
-                nearest[j]=k;
-            }
-        }
-        int min=INFTY;
-        for(int j=0; j&lt;vSize; j++) {
-            if(!mark[j] &amp;&amp; lowcost[j]&lt;min) {
-                min=lowcost[j];
-                k=j;
-            }
-        }
-        mark[k]=true;
-    }
-}
+<span class="token keyword">void</span> Graph<span class="token operator">::</span><span class="token function">Prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>nearest<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>lowcost<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">bool</span> <span class="token operator">*</span>mark <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">bool</span> <span class="token punctuation">[</span>vSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    ENode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>k<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">||</span> k<span class="token operator">></span>vSize<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        nearest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        mark<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+        lowcost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>INFTY<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    lowcost<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    nearest<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">=</span>k<span class="token punctuation">;</span>
+    mark<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>p<span class="token operator">=</span>a<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span> p<span class="token punctuation">;</span> p<span class="token operator">=</span>p<span class="token operator">-</span><span class="token operator">></span>nextArc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> j<span class="token operator">=</span>p<span class="token operator">-</span><span class="token operator">></span>adjVex<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span> mark<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>p<span class="token operator">-</span><span class="token operator">></span>weight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>p<span class="token operator">-</span><span class="token operator">></span>weight<span class="token punctuation">;</span>
+                nearest<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>k<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> min<span class="token operator">=</span>INFTY<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>vSize<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>mark<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>min<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                min<span class="token operator">=</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                k<span class="token operator">=</span>j<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        mark<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-int main() {
-    Graph g;
-    //g.test();
-    if(g.IsConnected())
-        g.Prim(0);
-    return 0;
-}
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Graph g<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//g.test();</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>g<span class="token punctuation">.</span><span class="token function">IsConnected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        g<span class="token punctuation">.</span><span class="token function">Prim</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
     

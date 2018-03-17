@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -459,25 +459,25 @@
 <ul>
 <li>暂时记住密码（默认15分钟）：</li>
 </ul>
-<pre><code class="bash">git config --global credential.helper cache
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global credential.helper cache
 
-# 如果想自己设置时间，可以这样做：
-git config credential.helper &#39;cache --timeout=3600&#39;
-# 这样就设置一个小时之后失效
+<span class="token comment" spellcheck="true"># 如果想自己设置时间，可以这样做：</span>
+<span class="token function">git</span> config credential.helper <span class="token string">'cache --timeout=3600'</span>
+<span class="token comment" spellcheck="true"># 这样就设置一个小时之后失效</span>
 </code></pre>
 <ul>
 <li>长期存储密码：</li>
 </ul>
-<pre><code class="bash">git config --global credential.helper store
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global credential.helper store
 </code></pre>
 <ul>
 <li>在远程地址中加上密码（推荐）</li>
 </ul>
-<pre><code class="bash">git remote add origin http://username:password@github.com/username/repo.git
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add origin http://username:password@github.com/username/repo.git
 </code></pre>
 <p>修改已有仓库的地址可以这样做</p>
-<pre><code class="bash">git remote rm origin
-git remote add origin http://username:password@github.com/username/repo.git
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">rm</span> origin
+<span class="token function">git</span> remote add origin http://username:password@github.com/username/repo.git
 </code></pre>
 
     

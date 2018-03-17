@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -467,60 +467,60 @@
         <ul>
 <li>普通的冒泡排序</li>
 </ul>
-<pre><code class="c">void BubbleSort(int arr[], int n) {
-    int i, j, t;
-    for(i=0; i&lt;n; i++) {
-        for(j=i+1; j&lt;n; j++) {
-            if(arr[i]&gt;arr[j]) {
-                t=arr[i]; arr[i]=arr[j]; arr[j]=t;
-            }
-        }
-    }
-}
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">BubbleSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> t<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                t<span class="token operator">=</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>t<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <ul>
 <li>使用一层循环实现的冒泡排序</li>
 </ul>
-<pre><code class="c">// 用宏实现变量交换
-#define Swap(a,b,c) ((c)=(a),(a)=(b),(b)=(c))
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 用宏实现变量交换</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> Swap(a,b,c) ((c)=(a),(a)=(b),(b)=(c))</span>
 
-// 第一种
-void BubbleSortOneLoop(int arr[], int n)
-{
-    int i = 0;
-    int l = 0;
-    while (i &lt; n - 1) //i还是控制最外层
-    {
-        if (arr[l] &gt; arr[l +1])
-        {
-            int temp = 0;
-            Swap(arr[l], arr[l + 1], temp);
-        }
-        l++;
-        if (l &gt;=n - i-1) //只不过在特殊点的时候改变l和i
-        {
-            l = 0;
-            i++;
-        }
-    }
-}
+<span class="token comment" spellcheck="true">// 第一种</span>
+<span class="token keyword">void</span> <span class="token function">BubbleSortOneLoop</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//i还是控制最外层</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>l <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token function">Swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        l<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">>=</span>n <span class="token operator">-</span> i<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//只不过在特殊点的时候改变l和i</span>
+        <span class="token punctuation">{</span>
+            l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-// 第二种
-void BubbleSortOneLoop(int arr[], int n)
-{
-    int i = 0;
-    int l = 0;
-    int temp;
-    while (i&lt;n*n-1) //大次数为n*n-1，%n实现下标循环
-    {
-        if (arr[l%n] &gt; arr[l%n + 1] &amp;&amp; l%n&lt;n-1-(i/n)) //直接判断
-        {
-            temp = 0;
-            Swap(arr[l%n], arr[l%n + 1], temp);
-        }
-        l++; i++;
-    }
-}
+<span class="token comment" spellcheck="true">// 第二种</span>
+<span class="token keyword">void</span> <span class="token function">BubbleSortOneLoop</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> temp<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i<span class="token operator">&lt;</span>n<span class="token operator">*</span>n<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//大次数为n*n-1，%n实现下标循环</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>l<span class="token operator">%</span>n<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>l<span class="token operator">%</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> l<span class="token operator">%</span>n<span class="token operator">&lt;</span>n<span class="token number">-1</span><span class="token operator">-</span><span class="token punctuation">(</span>i<span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//直接判断</span>
+        <span class="token punctuation">{</span>
+            temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token function">Swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>l<span class="token operator">%</span>n<span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>l<span class="token operator">%</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        l<span class="token operator">++</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>冒泡法时间复杂度为 <code>O(n^2)</code> ，这个是改不了的，不可能因为用一个循环实现，就变成了 <code>O(n)</code>。所以，并没有什么卵用，只是一种写代码的方式而已。。。</p>
 

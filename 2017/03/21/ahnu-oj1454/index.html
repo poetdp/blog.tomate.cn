@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -466,80 +466,80 @@
 2 1 3
 1 3 2
 1 2 3
-</code></pre><h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre><code class="cpp">#include&lt;iostream&gt;
-using namespace std;
+</code></pre><h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-typedef struct
-{
-    int *stk;
-    int top;
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>stk<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> top<span class="token punctuation">;</span>
 
-} stack;
-void initstack(stack *s, int n)
-{
-    s-&gt;stk = new int [20];
-    s-&gt;top = 0;
-}
+<span class="token punctuation">}</span> stack<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">initstack</span><span class="token punctuation">(</span>stack <span class="token operator">*</span>s<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    s<span class="token operator">-</span><span class="token operator">></span>stk <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    s<span class="token operator">-</span><span class="token operator">></span>top <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int count=1;
-void outputstack(stack* s)
-{
-    int i;
-    for(i=0; i&lt;s-&gt;top; i++)
-    cout&lt;&lt;s-&gt;stk[i]&lt;&lt;&quot; &quot;;
-    cout&lt;&lt;endl;
-}
+<span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">outputstack</span><span class="token punctuation">(</span>stack<span class="token operator">*</span> s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>s<span class="token operator">-</span><span class="token operator">></span>top<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    cout<span class="token operator">&lt;&lt;</span>s<span class="token operator">-</span><span class="token operator">></span>stk<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int stackempty(stack* s)
-{
-    return !s-&gt;top;
-}
+<span class="token keyword">int</span> <span class="token function">stackempty</span><span class="token punctuation">(</span>stack<span class="token operator">*</span> s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">!</span>s<span class="token operator">-</span><span class="token operator">></span>top<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-void push(stack* s, int x)
-{
-    s-&gt;stk[s-&gt;top++] = x;
-}
+<span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span>stack<span class="token operator">*</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    s<span class="token operator">-</span><span class="token operator">></span>stk<span class="token punctuation">[</span>s<span class="token operator">-</span><span class="token operator">></span>top<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int pop(stack* s)
-{
-    return s-&gt;stk[--s-&gt;top];
-}
+<span class="token keyword">int</span> <span class="token function">pop</span><span class="token punctuation">(</span>stack<span class="token operator">*</span> s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> s<span class="token operator">-</span><span class="token operator">></span>stk<span class="token punctuation">[</span><span class="token operator">--</span>s<span class="token operator">-</span><span class="token operator">></span>top<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-void stackseq(stack *input, stack *s, stack *output)
-{
-    if(stackempty(input) &amp;&amp; stackempty(s))
-    outputstack(output);
-    else
-    {
+<span class="token keyword">void</span> <span class="token function">stackseq</span><span class="token punctuation">(</span>stack <span class="token operator">*</span>input<span class="token punctuation">,</span> stack <span class="token operator">*</span>s<span class="token punctuation">,</span> stack <span class="token operator">*</span>output<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">stackempty</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">stackempty</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">outputstack</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
 
-        if(!stackempty(input))
-        {
-            push(s, pop(input));
-            stackseq(input, s, output);
-            push(input, pop(s));
-        }
-        if(!stackempty(s))
-        {
-            push(output, pop(s));
-            stackseq(input, s, output);
-            push(s, pop(output));
-        }
-    }
-}
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">stackempty</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">push</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">pop</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">stackseq</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> s<span class="token punctuation">,</span> output<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">push</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token function">pop</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">stackempty</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">push</span><span class="token punctuation">(</span>output<span class="token punctuation">,</span> <span class="token function">pop</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">stackseq</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> s<span class="token punctuation">,</span> output<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">push</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">pop</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 
-int main() {
-    int i,n;
-    stack input, s, output;
-    initstack(&amp;input, 20);
-    initstack(&amp;s, 20);
-    initstack(&amp;output, 20);
-    cin&gt;&gt;n;
-    for(i=n;i&gt;=1;i--)
-        push(&amp;input,i);
-    stackseq(&amp;input, &amp;s, &amp;output);
-    return 0;
-}
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span>n<span class="token punctuation">;</span>
+    stack input<span class="token punctuation">,</span> s<span class="token punctuation">,</span> output<span class="token punctuation">;</span>
+    <span class="token function">initstack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>input<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">initstack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">initstack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>output<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>n<span class="token punctuation">;</span>i<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span>
+        <span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>input<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">stackseq</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>input<span class="token punctuation">,</span> <span class="token operator">&amp;</span>s<span class="token punctuation">,</span> <span class="token operator">&amp;</span>output<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
     

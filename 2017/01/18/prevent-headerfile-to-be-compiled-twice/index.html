@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -468,18 +468,18 @@
 <ul>
 <li>在 .h 头部加上</li>
 </ul>
-<pre><code class="c">#pragma once
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 </code></pre>
 <p>从<code>Visual Studio 2003</code>开始就支持这个 directive，如果是 Visual Studio 6.0 就不支持了</p>
 <ul>
 <li>条件编译</li>
 </ul>
-<pre><code class="c">#ifndef _HEADFILE_H_
-#define _HEADFILE_H_
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">ifndef</span> _HEADFILE_H_</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> _HEADFILE_H_</span>
 
-//在这里写你的头文件内容
+<span class="token comment" spellcheck="true">//在这里写你的头文件内容</span>
 
-#endif
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
 </code></pre>
 <p><code>_HEADFILE_H_</code> 为宏名，用以区分不同的条件编译程序段</p>
 

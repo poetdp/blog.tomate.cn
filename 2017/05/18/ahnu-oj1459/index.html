@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -462,61 +462,61 @@
 <h5 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h5><p>n个作业的一个最优子集。</p>
 <h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h5><p>4<br>1 100 2<br>2 10 1<br>3 15 2<br>4 27 1</p>
 <h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h5><p>1 4</p>
-<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre><code class="cpp">#include &lt;iostream&gt;
-using namespace std;
+<h5 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-typedef struct {
-    int no;
-    int p;
-    int d;
-}JOB;
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> no<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> p<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> d<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>JOB<span class="token punctuation">;</span>
 
-void Sort_by_p(JOB *job, int n) {
-    int i, j;
-    JOB tmp;
-    for(i=0; i&lt;n; i++) {
-        for(j=i+1; j&lt;n; j++) {
-            if(job[i].p &lt; job[j].p) {
-                tmp=job[i];
-                job[i]=job[j];
-                job[j]=tmp;
-            }
-        }
-    }
-}
+<span class="token keyword">void</span> <span class="token function">Sort_by_p</span><span class="token punctuation">(</span>JOB <span class="token operator">*</span>job<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+    JOB tmp<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>job<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>p <span class="token operator">&lt;</span> job<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                tmp<span class="token operator">=</span>job<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                job<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>job<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                job<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-int JS(JOB *job, int *x, int n) {
-    int k=0, j, r, i;
-    x[0]=0;
-    cout &lt;&lt; job[x[k]].no &lt;&lt; &quot; &quot;;
-    for(j=1; j&lt;n; j++) {
-        r=k;
-        while(r&gt;=0 &amp;&amp; job[x[r]].d&gt;job[j].d &amp;&amp; job[x[r]].d&gt;r+1)
-            r--;
-        if((r&lt;0 || job[x[r]].d&lt;=job[j].d) &amp;&amp; job[j].d&gt;r+1) {
-            for(i=k; i&gt;=r+1; i--)
-                x[i+1]=x[i];
-            x[r+1]=j;
-            cout &lt;&lt; job[j].no &lt;&lt; &quot; &quot;;
-            k++;
-        }
-    }
-    return k;
-}
+<span class="token keyword">int</span> <span class="token function">JS</span><span class="token punctuation">(</span>JOB <span class="token operator">*</span>job<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>x<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> j<span class="token punctuation">,</span> r<span class="token punctuation">,</span> i<span class="token punctuation">;</span>
+    x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> job<span class="token punctuation">[</span>x<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>no <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        r<span class="token operator">=</span>k<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>r<span class="token operator">>=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> job<span class="token punctuation">[</span>x<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>d<span class="token operator">></span>job<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>d <span class="token operator">&amp;&amp;</span> job<span class="token punctuation">[</span>x<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>d<span class="token operator">></span>r<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+            r<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>r<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">||</span> job<span class="token punctuation">[</span>x<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>d<span class="token operator">&lt;=</span>job<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>d<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> job<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>d<span class="token operator">></span>r<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>k<span class="token punctuation">;</span> i<span class="token operator">>=</span>r<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span>
+                x<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            x<span class="token punctuation">[</span>r<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>j<span class="token punctuation">;</span>
+            cout <span class="token operator">&lt;&lt;</span> job<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>no <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+            k<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> k<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main() {
-    JOB *job;
-    int n, i;
-    cin &gt;&gt; n;
-    job = new JOB [n];
-    for(i=0; i&lt;n; i++) {
-        cin &gt;&gt; job[i].no &gt;&gt; job[i].p &gt;&gt; job[i].d;
-    }
-    Sort_by_p(job, n);
-    int *x = new int [n];
-    JS(job, x, n);
-    return 0;
-}
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    JOB <span class="token operator">*</span>job<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> i<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    job <span class="token operator">=</span> <span class="token keyword">new</span> JOB <span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cin <span class="token operator">>></span> job<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>no <span class="token operator">>></span> job<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>p <span class="token operator">>></span> job<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>d<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">Sort_by_p</span><span class="token punctuation">(</span>job<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">JS</span><span class="token punctuation">(</span>job<span class="token punctuation">,</span> x<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
     

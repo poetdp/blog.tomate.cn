@@ -289,7 +289,7 @@
             <!-- Baidu Links Commit --> <script> (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); </script>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head>
 
 
     
@@ -455,40 +455,40 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <pre><code class="javascript">/*
+        <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/*
  * @param 可能是对象、数组、字符串
  * 检查param中是否含有空白符、引号等，如果有则自动删除这些符号返回一个合法的数据
- */
-function check(param) {
-    if(typeof param == &quot;object&quot;) {
-        for(var item in param) {
-            if(typeof param[item] == &quot;string&quot;)
-                param[item] = param[item].replace(/\s|&#39;|&quot;|%|\?/g, &quot;&quot;);
-        }
-    }
-    else if(typeof param == &quot;string&quot;) {
-        param = param.replace(/\s|&#39;|&quot;|%|\?/g, &quot;&quot;);
-    }
-    return param;
-}
+ */</span>
+<span class="token keyword">function</span> <span class="token function">check</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> param <span class="token operator">==</span> <span class="token string">"object"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> item <span class="token keyword">in</span> param<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> param<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"string"</span><span class="token punctuation">)</span>
+                param<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> param<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token operator">/</span>\s<span class="token operator">|</span>'<span class="token operator">|</span><span class="token string">"|%|\?/g, "</span>"<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> param <span class="token operator">==</span> <span class="token string">"string"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        param <span class="token operator">=</span> param<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token operator">/</span>\s<span class="token operator">|</span>'<span class="token operator">|</span><span class="token string">"|%|\?/g, "</span>"<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> param<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-//test sample
+<span class="token comment" spellcheck="true">//test sample</span>
 
-o1 = {a:1, b:&quot;2 3&quot;, c:&quot;&#39;user&#39; or 1=1&quot;};
-o2 = [&quot;double kill&quot;, &quot;triple    kill&quot;];
-o3 = &quot;i love    &#39;u&#39;\n&quot;;
+o1 <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span><span class="token string">"2 3"</span><span class="token punctuation">,</span> c<span class="token punctuation">:</span><span class="token string">"'user' or 1=1"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+o2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"double kill"</span><span class="token punctuation">,</span> <span class="token string">"triple    kill"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+o3 <span class="token operator">=</span> <span class="token string">"i love    'u'\n"</span><span class="token punctuation">;</span>
 
-console.log(o1.a, o1.b, o1.c);
-o1 = check(o1);
-console.log(o1.a, o1.b, o1.c);
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o1<span class="token punctuation">.</span>a<span class="token punctuation">,</span> o1<span class="token punctuation">.</span>b<span class="token punctuation">,</span> o1<span class="token punctuation">.</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+o1 <span class="token operator">=</span> <span class="token function">check</span><span class="token punctuation">(</span>o1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o1<span class="token punctuation">.</span>a<span class="token punctuation">,</span> o1<span class="token punctuation">.</span>b<span class="token punctuation">,</span> o1<span class="token punctuation">.</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-console.log(o2[0], o2[1]);
-o2 = check(o2);
-console.log(o2[0], o2[1]);
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> o2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+o2 <span class="token operator">=</span> <span class="token function">check</span><span class="token punctuation">(</span>o2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> o2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-console.log(o3);
-o3 = check(o3);
-console.log(o3);
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+o3 <span class="token operator">=</span> <span class="token function">check</span><span class="token punctuation">(</span>o3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o3<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
     
