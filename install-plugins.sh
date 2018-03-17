@@ -16,7 +16,7 @@ npm install hexo-helper-post-top --save
 npm install hexo-generator-search --save
 
 #highlight
-#npm install hexo-prism-plugin --save
+npm install hexo-prism-plugin --save
 
 #sitemap
 npm install hexo-generator-sitemap --save
