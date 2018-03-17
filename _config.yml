@@ -74,6 +74,10 @@ pagination_dir: page
 search:
   path: search.xml
   field: post
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'solarizedlight'
+  line_number: false    # default false
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-material-1.4.0
 
